@@ -20,6 +20,9 @@ public class Result implements Serializable{
     public ArrayList<Site> getSites() { return sites; }
     public void setSites(ArrayList<Site> sites) { this.sites = sites; }
     public int getLast() { return last; }
-    public void setLast(int last) { this.last = last; } }
+    public void setLast(int last) { this.last = last; }
+    public boolean getCode() { return code; }
+
+}
 
 

@@ -9,14 +9,17 @@ import com.loopj.android.http.RequestParams;
 
 public class RestClient {
 
-    //private static final String BASE_URL = "http://192.168.1.100/";
-    private static final String BASE_URL = "https://enri.alumno.club/";   //Luego añadiremos la ruta correspondiente
+    private static final String BASE_URL = "https://enri.alumno.club/";
     private static final int MAX_TIMEOUT = 10000;
     private static final int RETRIES = 3;
     private static final int TIMEOUT_BETWEEN_RETRIES = 5000;
+    private static final String APIKEY = "key";                             //CLAVE API
+
     private static AsyncHttpClient client = new AsyncHttpClient(true, 80, 443);
     public static void get(String url, AsyncHttpResponseHandler responseHandler) {
         client.setTimeout(MAX_TIMEOUT);
+        //AÑADIDO SEGURIDAD API
+        client.addHeader("apikey", APIKEY);
         client.setMaxRetriesAndTimeout(RETRIES, TIMEOUT_BETWEEN_RETRIES);
         client.get(getAbsoluteUrl(url), responseHandler);
     }

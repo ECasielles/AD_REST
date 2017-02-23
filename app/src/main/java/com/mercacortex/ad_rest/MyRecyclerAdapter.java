@@ -59,6 +59,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
     public void set(ArrayList<Site> sitesList) {
         //set all the sites
         this.sitesList = sitesList;
+        notifyItemRangeChanged(0, sitesList.size() - 1);
+        //notifyDataSetChanged();
     }
     public Site getAt(int position){
         //get the site in the position
@@ -68,8 +70,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
         //add a site
         //this.sitesList.add(site);
         this.add(site);
-        notifyItemChanged(sitesList.size() - 1);
-        notifyItemRangeChanged(0, sitesList.size() - 1);
+        notifyItemInserted(sitesList.size() - 1);
+        notifyItemRangeInserted(sitesList.size() - 1, 1);
     }
     public void modifyAt(Site site, int position) {
         //modify a site in the position
